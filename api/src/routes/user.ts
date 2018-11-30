@@ -2,22 +2,12 @@ import * as express from 'express';
 import * as bcrypt from 'bcrypt';
 
 import { User } from '../entity/User';
+import checkCredentials from '../lib/middlewares/checkCredentials';
+
 const router = express.Router();
 
-router.use(function(req, res, next) {
-  //validate user post request
-  if (req.method === 'POST') {
-    const { email, password } = req.body;
-    if (!email || !password) {
-      res.status(404).send({ success: false });
-      return;
-    } else if (email.length < 3 || password.length < 3) {
-      res.status(422).send({ success: false });
-      return;
-    }
-  }
-  next();
-});
+// checcks credentials, defaults to enforcing on all routes
+router.use(checkCredentials());
 
 // define the home page route
 router.get('/', async function(req, res) {
@@ -43,6 +33,7 @@ router.get('/', async function(req, res) {
 
 // define create user route
 router.post('/', async function(req, res) {
+  console.log('xd', req.baseUrl);
   const { email, password } = req.body as { email: string; password: string };
 
   const hashedPassword = await bcrypt.hash(password, 12);
