@@ -10,11 +10,11 @@ These instructions will get you a copy of the project up and running on your loc
 
 Knowledge of:
 
-- nodejs
-- typescript
-- Express (API)
-- typeorm (for SQL databases)
-- React (When I add it)
+- [nodejs](https://nodejs.org/en/)
+- [expressjs](https://expressjs.com/)
+- [typeorm](https://github.com/typeorm/typeorm)
+- [typescript](https://www.typescriptlang.org/)
+- [react](https://reactjs.org/)
 
 ### Installing API
 
@@ -48,11 +48,4 @@ Create a file called typeorm.json
 npm run start || yarn start
 ```
 
-;)
-
-## Built With
-
-- [nodejs](https://nodejs.org/en/)
-- [expressjs](https://expressjs.com/)
-- [typeorm](https://github.com/typeorm/typeorm)
-- [typescript](https://www.typescriptlang.org/)
+### Happy hunting ;)
