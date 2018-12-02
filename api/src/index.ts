@@ -18,7 +18,7 @@ const startserver = async () => {
     session({
       resave: false,
       saveUninitialized: false,
-      secret: 'niggers_r_us',
+      secret: 'ENTER SECRET HERE',
     })
   );
   app.use(function(req, _, next) {
