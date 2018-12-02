@@ -28,7 +28,7 @@ cd api
 npm i || yarn install
 ```
 
-Create a file called typeorm.json
+Create a file called ormconfig.json in /api/
 
 ```
 {
