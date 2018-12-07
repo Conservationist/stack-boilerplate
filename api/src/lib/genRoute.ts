@@ -7,18 +7,17 @@ const log = console.log;
 const jsFile = `import * as express from 'express';
 const router = express.Router();
 
-// custom middleware
+/* custom middleware */
 router.use(function(req, res, next) {
   next();
 });
 
-// define the base route
+/* define the base route */
 router.get('/', function(req, res) {
   res.send('👀 anyone here? 👀');
 });
 
-// define more routes!
-
+/* define more routes! */
 export default router;
 `;
 

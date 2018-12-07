@@ -14,6 +14,7 @@ const startserver = async () => {
   const app = express();
   app.use(bodyParser.json());
 
+  /* express session */
   app.use(
     session({
       resave: false,
@@ -21,12 +22,16 @@ const startserver = async () => {
       secret: 'ENTER SECRET HERE',
     })
   );
+
+  /* if no session is found, return an error */
   app.use(function(req, _, next) {
     if (!req.session) {
       return next(new Error('oh no'));
     }
     next();
   });
+
+  /* import all routes from the ./routes folder */
   routeImport('routes', app, port);
 
   app.get('/', (_, res) => {

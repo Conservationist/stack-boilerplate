@@ -6,10 +6,10 @@ import checkCredentials from '../lib/middlewares/checkCredentials';
 
 const router = express.Router();
 
-// checcks credentials, defaults to enforcing on all routes
+/* checcks credentials, defaults to enforcing on all routes */
 router.use(checkCredentials());
 
-// define the home page route
+/* define the home page route */
 router.get('/', async function(req, res) {
   if (!req.session || !req.session!.userId) {
     res.status(500).send({ success: false });
@@ -31,7 +31,7 @@ router.get('/', async function(req, res) {
   });
 });
 
-// define create user route
+/* define create user route */
 router.post('/', async function(req, res) {
   console.log('xd', req.baseUrl);
   const { email, password } = req.body as { email: string; password: string };
@@ -43,7 +43,8 @@ router.post('/', async function(req, res) {
     .status(201)
     .send({ success: true, data: [{ id: user.id, email: user.email }] });
 });
-// define login route
+
+/* define route */
 router.post('/login', async function(req, res) {
   const { email, password } = req.body as { email: string; password: string };
 

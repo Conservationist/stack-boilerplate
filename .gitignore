@@ -1,6 +1,6 @@
 #api
 ormconfig.json
-
+dist/
 
 # dependencies
 node_modules/

@@ -2,6 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import chalk from 'chalk';
 import { Express } from 'express';
+import Extension from '../lib/helpers/extension';
 
 export default async function routeImport(
   directory: string,
@@ -17,7 +18,7 @@ export default async function routeImport(
     }
     files.forEach(async file => {
       const fullName = path.join(directory, file);
-      if (!file.toLowerCase().indexOf('ts')) {
+      if (!file.toLowerCase().indexOf(Extension())) {
         return;
       } else {
         const routeName = file.split('.')[0].toLowerCase();
